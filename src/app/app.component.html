@@ -1,17 +1,31 @@
 <div class="conatiner mt-5">
   <div class="row">
     <div class="col-md-3"></div>
+
     <div class="col-md-3">
       <input class="form-control" type="file" accept=".xls,.xlsx" (change)="selectExcelFile($event)">
     </div>
+
     <div class="col-md-2">
       <button class="btn btn-primary" (click)="excelToJsonConverter()">Convert</button>
     </div>
+
+    <hr>
+
+    <strong>Data in Json Format</strong>
+
     <div class="col-md-12">
-      <pre>{{rowObject | json}}</pre>
-      <!-- <pre id="jsondata" [innerHTML]=fileInJson></pre> -->
+      <pre [innerHTML]="fileInJson"></pre>
+    </div>
+
+    <hr>
+
+    <strong>Data Display</strong>
+    <div *ngFor="let item of rowObject">
+      <div>{{item | json}}</div>
+      <hr>
+
     </div>
   </div>
-</div>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
